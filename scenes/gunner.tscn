@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://dvqup8n05tjtr"]
+
+[ext_resource type="Script" uid="uid://dxe3qjbo44ehi" path="res://gunner.gd" id="1_dq2hc"]
+[ext_resource type="Texture2D" uid="uid://di45g56m7k84j" path="res://icon.svg" id="2_e7ore"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e8ncc"]
+radius = 64.0
+
+[node name="Gunner" type="CharacterBody2D"]
+script = ExtResource("1_dq2hc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_e7ore")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_e8ncc")
