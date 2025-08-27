@@ -62,10 +62,10 @@ func _physics_process(delta):
 		print(projectile_ammo)
 		if projectile_on == false:
 			var p = projectile.instantiate()
-			get_tree().current_scene.add_child(p)
 			p.global_position = global_position
 			p.direction = facing_direction
 			p.owner_node = self
+			get_tree().current_scene.add_child(p)
 			projectile_on = true
 			projectile_ammo -= 1
 	

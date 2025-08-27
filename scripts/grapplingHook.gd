@@ -9,9 +9,9 @@ var player_type : String
 
 func _ready():
 	connect("body_entered", Callable(self, "body_entered"))
-	if player.player_type == 1:
+	if owner_node.player_type == 1:
 		player_type = "player1"
-	elif player.player_type == 2:
+	elif owner_node.player_type == 2:
 		player_type = "player2"
 	death_timer()
 
@@ -20,12 +20,12 @@ func _physics_process(delta):
 
 func death_timer():
 	await get_tree().create_timer(3).timeout
-	Global.player_type.projectile_on = false
+	owner_node.projectile_on = false
 	queue_free()
 
 func body_entered(body):
 	print("dgd")
 	if body != owner_node and body.has_method("take_damage"):
 		body.take_damage(projectile_damage, direction * -15)
-		Global.player_type.projectile_on = false
+		owner_node.projectile_on = false
 		queue_free()
