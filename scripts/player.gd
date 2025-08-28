@@ -51,6 +51,9 @@ func _physics_process(delta):
 	elif facing_direction.x == 1:
 		$CollisionShape2D/AnimatedSprite2D.flip_h = false
 	
+	if velocity.y > 3000:
+		queue_free()
+	
 	if Input.is_action_just_pressed(speciala) and $attackset1.sword_on == false:
 		$attackset1.sword_attack()
 	
