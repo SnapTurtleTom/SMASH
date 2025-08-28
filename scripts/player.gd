@@ -48,6 +48,11 @@ func _physics_process(delta):
 		facing_direction = Vector2(sign(input_dir), 0)
 	velocity.x = move_toward(velocity.x, input_dir * speed, acceleration * delta)
 	
+	if facing_direction.x == -1:
+		$CollisionShape2D/AnimatedSprite2D.flip_h = true
+	elif facing_direction.x == 1:
+		$CollisionShape2D/AnimatedSprite2D.flip_h = false
+	
 	if Input.is_action_just_pressed(speciala) and $attackset1.sword_on == false:
 		$attackset1.sword_attack()
 	

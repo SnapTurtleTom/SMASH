@@ -1,11 +1,39 @@
-[gd_scene load_steps=7 format=3 uid="uid://dpkxqmw0od5pg"]
+[gd_scene load_steps=13 format=3 uid="uid://dpkxqmw0od5pg"]
 
 [ext_resource type="Script" uid="uid://gnyj3odyxp1v" path="res://scripts/player.gd" id="1_t45w4"]
 [ext_resource type="Texture2D" uid="uid://di45g56m7k84j" path="res://icon.svg" id="2_h5ip5"]
+[ext_resource type="Texture2D" uid="uid://nd7wvk668bso" path="res://sprites/idle_blue_blob1.png" id="2_vqfsp"]
 [ext_resource type="Script" uid="uid://ijs624qsbsdu" path="res://scripts/attackset_1.gd" id="3_40w10"]
+[ext_resource type="Texture2D" uid="uid://b2hvrtopl47sc" path="res://sprites/idle_blue_blob2.png" id="3_i6jx3"]
+[ext_resource type="Texture2D" uid="uid://cwhoaq1hftccd" path="res://sprites/idle_blue_blob3.png" id="4_jn13j"]
+[ext_resource type="Texture2D" uid="uid://dr2ycb87ae1hd" path="res://sprites/idle_blue_blob4.png" id="5_6irmp"]
+[ext_resource type="Texture2D" uid="uid://cnh6j0s6gw5s" path="res://sprites/idle_blue_blob5.png" id="6_dmaw2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0e48y"]
 radius = 64.1249
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1xxg6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_vqfsp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_i6jx3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_jn13j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_6irmp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_dmaw2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e4ynd"]
 size = Vector2(128, 476)
@@ -17,11 +45,13 @@ radius = 350.036
 collision_mask = 3
 script = ExtResource("1_t45w4")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_h5ip5")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_0e48y")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollisionShape2D"]
+scale = Vector2(12, 12)
+sprite_frames = SubResource("SpriteFrames_1xxg6")
+autoplay = "default"
 
 [node name="attackset1" type="Area2D" parent="."]
 collision_layer = 2
@@ -42,6 +72,6 @@ centered = false
 shape = SubResource("CircleShape2D_8rhti")
 
 [node name="Sprite2D" type="Sprite2D" parent="attackset1/bigsword"]
-position = Vector2(-2.38419e-07, 9.53674e-07)
+position = Vector2(3.1352e-05, 2.02656e-06)
 scale = Vector2(5.49219, 5.46875)
 texture = ExtResource("2_h5ip5")

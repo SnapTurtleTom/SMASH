@@ -96,3 +96,7 @@ specialc2={
 
 2d_physics/layer_1="players"
 2d_physics/layer_2="attacks"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
