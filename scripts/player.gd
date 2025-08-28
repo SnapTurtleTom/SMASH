@@ -8,7 +8,6 @@ var projectile = preload("res://scenes/grappling_hook.tscn")
 @export var health = 100.0
 var facing_direction := Vector2.RIGHT
 var projectile_on = false
-var projectile_ammo = 1
 var held_time : float
 
 var player_type : int
@@ -20,7 +19,6 @@ var specialb : String
 var specialc : String
 
 func _ready():
-	grapple_reload()
 	if player_type == 1:
 		jump = "jump1"
 		left = "left1"
@@ -63,8 +61,7 @@ func _physics_process(delta):
 			$attackset1.big_sword_attack()
 		held_time = 0
 	
-	if Input.is_action_just_pressed(specialc) and projectile_ammo > 0:
-		print(projectile_ammo)
+	if Input.is_action_just_pressed(specialc):
 		if projectile_on == false:
 			var p = projectile.instantiate()
 			p.global_position = global_position
@@ -72,16 +69,10 @@ func _physics_process(delta):
 			p.owner_node = self
 			get_tree().current_scene.add_child(p)
 			projectile_on = true
-			projectile_ammo -= 1
-	
+			await get_tree().create_timer(3).timeout
+			projectile_on = false
 	
 	move_and_slide()
-
-func grapple_reload():
-	while true:
-		await get_tree().create_timer(2).timeout
-		if projectile_ammo < 1:
-			projectile_ammo += 1
 
 func take_damage(damage: float, knockback: Vector2):
 	health -= damage

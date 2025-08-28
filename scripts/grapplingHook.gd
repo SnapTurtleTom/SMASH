@@ -20,12 +20,10 @@ func _physics_process(delta):
 
 func death_timer():
 	await get_tree().create_timer(3).timeout
-	owner_node.projectile_on = false
 	queue_free()
 
 func body_entered(body):
 	print("dgd")
 	if body != owner_node and body.has_method("take_damage"):
 		body.take_damage(projectile_damage, direction * -15)
-		owner_node.projectile_on = false
 		queue_free()
