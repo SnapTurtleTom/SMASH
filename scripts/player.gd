@@ -19,6 +19,7 @@ var specialb : String
 var specialc : String
 
 func _ready():
+	$HealthBar.max_value = health
 	if player_type == 1:
 		jump = "jump1"
 		left = "left1"
@@ -45,6 +46,8 @@ func _physics_process(delta):
 	if input_dir != 0:
 		facing_direction = Vector2(sign(input_dir), 0)
 	velocity.x = move_toward(velocity.x, input_dir * speed, acceleration * delta)
+	
+	$HealthBar.value = health
 	
 	if facing_direction.x == -1:
 		$CollisionShape2D/AnimatedSprite2D.flip_h = true

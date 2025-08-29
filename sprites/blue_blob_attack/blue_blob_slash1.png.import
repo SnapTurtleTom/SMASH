@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b2hvrtopl47sc"
-path="res://.godot/imported/idle_blue_blob2.png-a3894cf99422116b140471555439ef08.ctex"
+uid="uid://dxam0i0oa7mka"
+path="res://.godot/imported/blue_blob_slash1.png-3af42ba6de5271527044ff559a5a8097.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/idle_blue_blob2.png"
-dest_files=["res://.godot/imported/idle_blue_blob2.png-a3894cf99422116b140471555439ef08.ctex"]
+source_file="res://sprites/blue_blob_attack/blue_blob_slash1.png"
+dest_files=["res://.godot/imported/blue_blob_slash1.png-3af42ba6de5271527044ff559a5a8097.ctex"]
 
 [params]
 

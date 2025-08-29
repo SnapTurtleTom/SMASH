@@ -1,13 +1,18 @@
-[gd_scene load_steps=13 format=3 uid="uid://dpkxqmw0od5pg"]
+[gd_scene load_steps=21 format=3 uid="uid://dpkxqmw0od5pg"]
 
 [ext_resource type="Script" uid="uid://gnyj3odyxp1v" path="res://scripts/player.gd" id="1_t45w4"]
 [ext_resource type="Texture2D" uid="uid://di45g56m7k84j" path="res://icon.svg" id="2_h5ip5"]
-[ext_resource type="Texture2D" uid="uid://nd7wvk668bso" path="res://sprites/idle_blue_blob1.png" id="2_vqfsp"]
+[ext_resource type="Texture2D" uid="uid://nd7wvk668bso" path="res://sprites/idle_blue_sprites/idle_blue_blob1.png" id="2_vqfsp"]
 [ext_resource type="Script" uid="uid://ijs624qsbsdu" path="res://scripts/attackset_1.gd" id="3_40w10"]
-[ext_resource type="Texture2D" uid="uid://b2hvrtopl47sc" path="res://sprites/idle_blue_blob2.png" id="3_i6jx3"]
-[ext_resource type="Texture2D" uid="uid://cwhoaq1hftccd" path="res://sprites/idle_blue_blob3.png" id="4_jn13j"]
-[ext_resource type="Texture2D" uid="uid://dr2ycb87ae1hd" path="res://sprites/idle_blue_blob4.png" id="5_6irmp"]
-[ext_resource type="Texture2D" uid="uid://cnh6j0s6gw5s" path="res://sprites/idle_blue_blob5.png" id="6_dmaw2"]
+[ext_resource type="Texture2D" uid="uid://b2hvrtopl47sc" path="res://sprites/idle_blue_sprites/idle_blue_blob2.png" id="3_i6jx3"]
+[ext_resource type="Texture2D" uid="uid://cwhoaq1hftccd" path="res://sprites/idle_blue_sprites/idle_blue_blob3.png" id="4_jn13j"]
+[ext_resource type="Texture2D" uid="uid://dr2ycb87ae1hd" path="res://sprites/idle_blue_sprites/idle_blue_blob4.png" id="5_6irmp"]
+[ext_resource type="Texture2D" uid="uid://cnh6j0s6gw5s" path="res://sprites/idle_blue_sprites/idle_blue_blob5.png" id="6_dmaw2"]
+[ext_resource type="Texture2D" uid="uid://bwomnbmki7ayf" path="res://sprites/blue_blob_attack/blue_blob_slash2.png" id="8_1xxg6"]
+[ext_resource type="Texture2D" uid="uid://ccqmr53ptvrm3" path="res://sprites/blue_blob_attack/blue_blob_slash3.png" id="9_517kj"]
+[ext_resource type="Texture2D" uid="uid://bs3und1r0jepv" path="res://sprites/blue_blob_attack/blue_blob_slash4.png" id="10_ot4hf"]
+[ext_resource type="Texture2D" uid="uid://drtr04s08tk2n" path="res://sprites/blue_blob_attack/blue_blob_slash5.png" id="11_vciil"]
+[ext_resource type="Texture2D" uid="uid://cx7jr4x7y7j2u" path="res://sprites/blue_blob_attack/blue_blob_slash6.png" id="12_ycryd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0e48y"]
 radius = 64.1249
@@ -36,10 +41,39 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e4ynd"]
-size = Vector2(128, 476)
+size = Vector2(193.196, 476)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ystrd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_1xxg6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_517kj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_ot4hf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_vciil")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_ycryd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8rhti"]
 radius = 350.036
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1xxg6"]
+bg_color = Color(1.58831e-06, 0.726311, 0.168332, 1)
+
+[sub_resource type="Theme" id="Theme_517kj"]
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_1xxg6")
 
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 3
@@ -58,20 +92,27 @@ collision_layer = 2
 script = ExtResource("3_40w10")
 
 [node name="sword" type="CollisionShape2D" parent="attackset1"]
-position = Vector2(107, -43.5)
+position = Vector2(161.5, -43.5)
 scale = Vector2(1.67188, 0.25)
 shape = SubResource("RectangleShape2D_e4ynd")
 
-[node name="Sprite2D" type="Sprite2D" parent="attackset1/sword"]
-position = Vector2(-63.9998, -238)
-scale = Vector2(1, 3.71875)
-texture = ExtResource("2_h5ip5")
-centered = false
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="attackset1/sword"]
+position = Vector2(8.58307e-05, 0)
+scale = Vector2(3.78815, 28)
+sprite_frames = SubResource("SpriteFrames_ystrd")
+autoplay = "default"
 
 [node name="bigsword" type="CollisionShape2D" parent="attackset1"]
 shape = SubResource("CircleShape2D_8rhti")
 
 [node name="Sprite2D" type="Sprite2D" parent="attackset1/bigsword"]
-position = Vector2(3.1352e-05, 2.02656e-06)
+position = Vector2(0.000244081, 2.26498e-05)
 scale = Vector2(5.49219, 5.46875)
 texture = ExtResource("2_h5ip5")
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+offset_left = -100.0
+offset_top = -109.0
+offset_right = 100.0
+offset_bottom = -80.0
+theme = SubResource("Theme_517kj")
