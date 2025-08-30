@@ -8,9 +8,6 @@ func _physics_process(delta):
 	if !is_on_floor():
 		velocity.y += gravity * delta
 	
-	if velocity.y > 3000:
-		queue_free()
-	
 	else:
 		velocity.x = move_toward(velocity.x, 0, friction * delta)
 	move_and_slide()

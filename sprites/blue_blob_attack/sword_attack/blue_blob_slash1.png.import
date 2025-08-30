@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bwomnbmki7ayf"
-path="res://.godot/imported/blue_blob_slash2.png-60ba6f467ae440e7f8d419019a3db75c.ctex"
+uid="uid://dxam0i0oa7mka"
+path="res://.godot/imported/blue_blob_slash1.png-f285f309e724df415750a2c7da269ec4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/blue_blob_attack/blue_blob_slash2.png"
-dest_files=["res://.godot/imported/blue_blob_slash2.png-60ba6f467ae440e7f8d419019a3db75c.ctex"]
+source_file="res://sprites/blue_blob_attack/sword_attack/blue_blob_slash1.png"
+dest_files=["res://.godot/imported/blue_blob_slash1.png-f285f309e724df415750a2c7da269ec4.ctex"]
 
 [params]
 

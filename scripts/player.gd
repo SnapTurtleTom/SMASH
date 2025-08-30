@@ -9,6 +9,7 @@ var projectile = preload("res://scenes/grappling_hook.tscn")
 var facing_direction := Vector2.RIGHT
 var projectile_on = false
 var held_time : float
+var attack_cooldown_on = false
 
 var player_type : int
 var jump : String
@@ -17,6 +18,7 @@ var right : String
 var speciala : String
 var specialb : String
 var specialc : String
+var speciald : String
 
 func _ready():
 	$HealthBar.max_value = health
@@ -27,6 +29,7 @@ func _ready():
 		speciala = "speciala1"
 		specialb = "specialb1"
 		specialc = "specialc1"
+		speciald = "speciald1"
 	elif player_type == 2:
 		jump = "jump2"
 		left = "left2"
@@ -34,6 +37,7 @@ func _ready():
 		speciala = "speciala2"
 		specialb = "specialb2"
 		specialc = "specialc2"
+		speciald = "speciald2"
 
 func _physics_process(delta):
 	if !is_on_floor():
@@ -54,11 +58,13 @@ func _physics_process(delta):
 	elif facing_direction.x == 1:
 		$CollisionShape2D/AnimatedSprite2D.flip_h = false
 	
-	if velocity.y > 3000:
-		queue_free()
 	
-	if Input.is_action_just_pressed(speciala) and $attackset1.sword_on == false:
+	if Input.is_action_just_pressed(speciala) and $attackset1.sword_on == false and attack_cooldown_on == false:
 		$attackset1.sword_attack()
+		attack_cooldown_on = true
+		await get_tree().create_timer(1).timeout
+		attack_cooldown_on = false
+		
 	
 	if Input.is_action_pressed(specialb):
 		held_time += delta
@@ -66,17 +72,25 @@ func _physics_process(delta):
 		if held_time > 1 and $attackset1.sword_on == false:
 			$attackset1.big_sword_attack()
 		held_time = 0
+		attack_cooldown_on = true
+		await get_tree().create_timer(2).timeout
+		attack_cooldown_on = false
 	
-	if Input.is_action_just_pressed(specialc):
-		if projectile_on == false:
-			var p = projectile.instantiate()
-			p.global_position = global_position
-			p.direction = facing_direction
-			p.owner_node = self
-			get_tree().current_scene.add_child(p)
-			projectile_on = true
-			await get_tree().create_timer(3).timeout
-			projectile_on = false
+	if Input.is_action_just_pressed(specialc) and projectile_on == false:
+		var p = projectile.instantiate()
+		p.global_position = global_position
+		p.direction = facing_direction
+		p.owner_node = self
+		get_tree().current_scene.add_child(p)
+		projectile_on = true
+		await get_tree().create_timer(3).timeout
+		projectile_on = false
+	
+	if Input.is_action_just_pressed(speciald) and $attackset1.sword_on == false and attack_cooldown_on == false:
+		$attackset1.spin_sword_attack()
+		attack_cooldown_on = true
+		await get_tree().create_timer(1).timeout
+		attack_cooldown_on = false
 	
 	move_and_slide()
 
