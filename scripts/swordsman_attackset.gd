@@ -2,7 +2,7 @@ extends Area2D
 
 @export var sword_damage = 10.0
 @export var big_sword_damage = 30.0
-@export var spin_sword_damage = 10.0
+@export var spin_sword_damage = 2.5
 var owner_node : Node2D
 var dir : Vector2 = Vector2.ZERO
 var sword_on = false
@@ -47,17 +47,17 @@ func big_sword_attack():
 
 func spin_sword_attack():
 	current_damage = spin_sword_damage
-	current_knockback = 15
+	current_knockback = 20
 	$spinsword.visible = true
 	$spinsword.disabled = false
 	sword_on = true
 	for i in 5:
 		await get_tree().create_timer(0.05).timeout
 		scale.x = 1
-		dir = Vector2(scale.x, -1)
+		dir = Vector2(scale.x / 3, -1)
 		await get_tree().create_timer(0.05).timeout
 		scale.x = -1
-		dir = Vector2(scale.x, -1)
+		dir = Vector2(scale.x / 3, -1)
 	sword_on = false
 	$spinsword.visible = false
 	$spinsword.disabled = true

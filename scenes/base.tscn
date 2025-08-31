@@ -1,9 +1,9 @@
 [gd_scene load_steps=27 format=3 uid="uid://dpkxqmw0od5pg"]
 
-[ext_resource type="Script" uid="uid://gnyj3odyxp1v" path="res://scripts/player.gd" id="1_t45w4"]
+[ext_resource type="Script" uid="uid://gnyj3odyxp1v" path="res://scripts/swordsman.gd" id="1_t45w4"]
 [ext_resource type="Texture2D" uid="uid://di45g56m7k84j" path="res://icon.svg" id="2_h5ip5"]
 [ext_resource type="Texture2D" uid="uid://nd7wvk668bso" path="res://sprites/idle_blue_sprites/idle_blue_blob1.png" id="2_vqfsp"]
-[ext_resource type="Script" uid="uid://ijs624qsbsdu" path="res://scripts/attackset_1.gd" id="3_40w10"]
+[ext_resource type="Script" uid="uid://ijs624qsbsdu" path="res://scripts/swordsman_attackset.gd" id="3_40w10"]
 [ext_resource type="Texture2D" uid="uid://b2hvrtopl47sc" path="res://sprites/idle_blue_sprites/idle_blue_blob2.png" id="3_i6jx3"]
 [ext_resource type="Texture2D" uid="uid://cwhoaq1hftccd" path="res://sprites/idle_blue_sprites/idle_blue_blob3.png" id="4_jn13j"]
 [ext_resource type="Texture2D" uid="uid://dr2ycb87ae1hd" path="res://sprites/idle_blue_sprites/idle_blue_blob4.png" id="5_6irmp"]
@@ -102,47 +102,47 @@ bg_color = Color(1.58831e-06, 0.726311, 0.168332, 1)
 [sub_resource type="Theme" id="Theme_517kj"]
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_1xxg6")
 
-[node name="Player" type="CharacterBody2D"]
+[node name="swordsman" type="CharacterBody2D"]
 collision_mask = 3
 script = ExtResource("1_t45w4")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="swordsman_hurtbox" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_0e48y")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollisionShape2D"]
+[node name="swordsman_animated_sprite" type="AnimatedSprite2D" parent="swordsman_hurtbox"]
 scale = Vector2(12, 12)
 sprite_frames = SubResource("SpriteFrames_1xxg6")
 autoplay = "default"
 
-[node name="attackset1" type="Area2D" parent="."]
+[node name="swordsman_attackset" type="Area2D" parent="."]
 collision_layer = 2
 script = ExtResource("3_40w10")
 
-[node name="bigsword" type="CollisionShape2D" parent="attackset1"]
+[node name="bigsword" type="CollisionShape2D" parent="swordsman_attackset"]
 shape = SubResource("CircleShape2D_8rhti")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="attackset1/bigsword"]
+[node name="bigsword_animated_sprite" type="AnimatedSprite2D" parent="swordsman_attackset/bigsword"]
 position = Vector2(7.7486e-06, -34.0001)
 scale = Vector2(10.9855, 12.2535)
 sprite_frames = SubResource("SpriteFrames_b085t")
 autoplay = "default"
 
-[node name="sword" type="CollisionShape2D" parent="attackset1"]
+[node name="sword" type="CollisionShape2D" parent="swordsman_attackset"]
 position = Vector2(161.5, -43.5)
 scale = Vector2(1.67188, 0.25)
 shape = SubResource("RectangleShape2D_e4ynd")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="attackset1/sword"]
+[node name="sword_animated_sprite" type="AnimatedSprite2D" parent="swordsman_attackset/sword"]
 position = Vector2(8.58307e-05, 0)
 scale = Vector2(3.78815, 28)
 sprite_frames = SubResource("SpriteFrames_ystrd")
 autoplay = "default"
 
-[node name="spinsword" type="CollisionShape2D" parent="attackset1"]
+[node name="spinsword" type="CollisionShape2D" parent="swordsman_attackset"]
 position = Vector2(134, 0)
 shape = SubResource("RectangleShape2D_1xxg6")
 
-[node name="Sprite2D" type="Sprite2D" parent="attackset1/spinsword"]
+[node name="Sprite2D" type="Sprite2D" parent="swordsman_attackset/spinsword"]
 position = Vector2(-1.14441e-05, -4.76837e-07)
 scale = Vector2(2.09375, 0.390625)
 texture = ExtResource("2_h5ip5")
@@ -153,8 +153,3 @@ offset_top = -109.0
 offset_right = 100.0
 offset_bottom = -80.0
 theme = SubResource("Theme_517kj")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(-4, -189)
-zoom = Vector2(0.3, 0.3)
-position_smoothing_enabled = true

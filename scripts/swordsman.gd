@@ -4,7 +4,7 @@ var projectile = preload("res://scenes/grappling_hook.tscn")
 @export var gravity = 6000.0
 @export var speed = 500.0
 @export var acceleration = 2000.0
-@export var jump_force = -2000.0
+@export var jump_force = -2200.0
 @export var health = 100.0
 var facing_direction := Vector2.RIGHT
 var projectile_on = false
@@ -51,16 +51,18 @@ func _physics_process(delta):
 		facing_direction = Vector2(sign(input_dir), 0)
 	velocity.x = move_toward(velocity.x, input_dir * speed, acceleration * delta)
 	
+	if self.position.y > 3000:
+		queue_free()
 	$HealthBar.value = health
 	
 	if facing_direction.x == -1:
-		$CollisionShape2D/AnimatedSprite2D.flip_h = true
+		$swordsman_hurtbox/swordsman_animated_sprite.flip_h = true
 	elif facing_direction.x == 1:
-		$CollisionShape2D/AnimatedSprite2D.flip_h = false
+		$swordsman_hurtbox/swordsman_animated_sprite.flip_h = false
 	
 	
-	if Input.is_action_just_pressed(speciala) and $attackset1.sword_on == false and attack_cooldown_on == false:
-		$attackset1.sword_attack()
+	if Input.is_action_just_pressed(speciala) and $swordsman_attackset.sword_on == false and attack_cooldown_on == false:
+		$swordsman_attackset.sword_attack()
 		attack_cooldown_on = true
 		await get_tree().create_timer(1).timeout
 		attack_cooldown_on = false
@@ -69,12 +71,12 @@ func _physics_process(delta):
 	if Input.is_action_pressed(specialb):
 		held_time += delta
 	elif Input.is_action_just_released(specialb):
-		if held_time > 1 and $attackset1.sword_on == false:
-			$attackset1.big_sword_attack()
+		if held_time > 1 and $swordsman_attackset.sword_on == false:
+			$swordsman_attackset.big_sword_attack()
+			attack_cooldown_on = true
+			await get_tree().create_timer(2).timeout
+			attack_cooldown_on = false
 		held_time = 0
-		attack_cooldown_on = true
-		await get_tree().create_timer(2).timeout
-		attack_cooldown_on = false
 	
 	if Input.is_action_just_pressed(specialc) and projectile_on == false:
 		var p = projectile.instantiate()
@@ -86,8 +88,8 @@ func _physics_process(delta):
 		await get_tree().create_timer(3).timeout
 		projectile_on = false
 	
-	if Input.is_action_just_pressed(speciald) and $attackset1.sword_on == false and attack_cooldown_on == false:
-		$attackset1.spin_sword_attack()
+	if Input.is_action_just_pressed(speciald) and $swordsman_attackset.sword_on == false and attack_cooldown_on == false:
+		$swordsman_attackset.spin_sword_attack()
 		attack_cooldown_on = true
 		await get_tree().create_timer(1).timeout
 		attack_cooldown_on = false
