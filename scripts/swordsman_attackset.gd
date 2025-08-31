@@ -48,16 +48,15 @@ func big_sword_attack():
 func spin_sword_attack():
 	current_damage = spin_sword_damage
 	current_knockback = 20
+	sword_on = true
+	dir = Vector2(scale.x / 3, -1)
 	$spinsword.visible = true
 	$spinsword.disabled = false
-	sword_on = true
 	for i in 5:
 		await get_tree().create_timer(0.05).timeout
 		scale.x = 1
-		dir = Vector2(scale.x / 3, -1)
 		await get_tree().create_timer(0.05).timeout
 		scale.x = -1
-		dir = Vector2(scale.x / 3, -1)
 	sword_on = false
 	$spinsword.visible = false
 	$spinsword.disabled = true
