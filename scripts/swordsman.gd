@@ -56,9 +56,9 @@ func _physics_process(delta):
 	$HealthBar.value = health
 	
 	if facing_direction.x == -1:
-		$swordsman_hurtbox/swordsman_animated_sprite.flip_h = true
+		$swordsman_hitbox/swordsman_idle.flip_h = true
 	elif facing_direction.x == 1:
-		$swordsman_hurtbox/swordsman_animated_sprite.flip_h = false
+		$swordsman_hitbox/swordsman_idle.flip_h = false
 	
 	
 	if Input.is_action_just_pressed(speciala) and $swordsman_attackset.sword_on == false and attack_cooldown_on == false:

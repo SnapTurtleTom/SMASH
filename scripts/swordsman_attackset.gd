@@ -22,7 +22,7 @@ func _ready():
 
 func sword_attack():
 	current_damage = sword_damage
-	current_knockback = sword_damage
+	current_knockback = 12.5
 	dir = owner_node.facing_direction
 	scale.x = owner_node.facing_direction.x
 	$sword.visible = true
@@ -35,12 +35,16 @@ func sword_attack():
 
 func big_sword_attack():
 	current_damage = big_sword_damage
-	current_knockback = 15
+	current_knockback = 17.5
 	dir = owner_node.facing_direction
+	get_parent().get_node("swordsman_hitbox/swordsman_idle").visible = false
+	get_parent().get_node("swordsman_hitbox/swordsman_rolling").visible = true
 	$bigsword.visible = true
 	$bigsword.disabled = false
 	sword_on = true
 	await get_tree().create_timer(0.5).timeout
+	get_parent().get_node("swordsman_hitbox/swordsman_idle").visible = true
+	get_parent().get_node("swordsman_hitbox/swordsman_rolling").visible = false
 	sword_on = false
 	$bigsword.visible = false
 	$bigsword.disabled = true
@@ -48,15 +52,27 @@ func big_sword_attack():
 func spin_sword_attack():
 	current_damage = spin_sword_damage
 	current_knockback = 20
+	dir = Vector2(scale.x / 2, -1)
+	owner_node.speed = 1500.0
+	owner_node.acceleration = 1000.0
+	owner_node.gravity = 3000
+	get_parent().get_node("swordsman_hitbox/swordsman_idle").visible = false
+	get_parent().get_node("swordsman_hitbox/swordsman_spinning").visible = true
 	sword_on = true
-	dir = Vector2(scale.x / 3, -1)
 	$spinsword.visible = true
 	$spinsword.disabled = false
-	for i in 5:
+	for i in 10:
 		await get_tree().create_timer(0.05).timeout
 		scale.x = 1
+		dir = Vector2(scale.x / 3, -1)
 		await get_tree().create_timer(0.05).timeout
 		scale.x = -1
+		dir = Vector2(scale.x / 3, -1)
+	owner_node.speed = 500.0
+	owner_node.acceleration = 2000.0
+	owner_node.gravity = 6000.0
+	get_parent().get_node("swordsman_hitbox/swordsman_idle").visible = true
+	get_parent().get_node("swordsman_hitbox/swordsman_spinning").visible = false
 	sword_on = false
 	$spinsword.visible = false
 	$spinsword.disabled = true
