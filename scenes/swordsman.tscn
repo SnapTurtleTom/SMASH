@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://dpkxqmw0od5pg"]
+[gd_scene load_steps=41 format=3 uid="uid://dpkxqmw0od5pg"]
 
 [ext_resource type="Script" uid="uid://gnyj3odyxp1v" path="res://scripts/swordsman.gd" id="1_6i2fm"]
 [ext_resource type="Texture2D" uid="uid://nd7wvk668bso" path="res://sprites/idle_blue_sprites/idle_blue_blob1.png" id="2_ncrap"]
@@ -29,7 +29,6 @@
 [ext_resource type="Texture2D" uid="uid://bacu015jdp8bi" path="res://sprites/blue_blob_attack/spinsword_attack/blue_sword_sprite.png" id="17_pq5me"]
 [ext_resource type="Texture2D" uid="uid://dxfy1qvxc3pcc" path="res://sprites/rolling_blue_blob_sprites/blue_blob_rolling7.png" id="17_y0gk3"]
 [ext_resource type="Texture2D" uid="uid://cmvlykpk4nwob" path="res://sprites/rolling_blue_blob_sprites/blue_blob_rolling8.png" id="18_on3w6"]
-[ext_resource type="Texture2D" path="res://sprites/player_types1.png" id="19_5n52e"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0e48y"]
 radius = 64.1249
@@ -192,12 +191,6 @@ scale = Vector2(12, 12)
 sprite_frames = SubResource("SpriteFrames_i4tte")
 autoplay = "default"
 
-[node name="player1icon" type="Sprite2D" parent="swordsman_hitbox"]
-position = Vector2(0, -99)
-texture = ExtResource("19_5n52e")
-
-[node name="player2icon" type="Sprite2D" parent="swordsman_hitbox"]
-
 [node name="swordsman_attackset" type="Area2D" parent="."]
 collision_layer = 2
 script = ExtResource("7_32w2b")
@@ -237,3 +230,11 @@ offset_top = -109.0
 offset_right = 100.0
 offset_bottom = -80.0
 theme = SubResource("Theme_517kj")
+
+[node name="bigsword_bar" type="ProgressBar" parent="."]
+visible = false
+offset_left = 100.0
+offset_top = -43.0
+offset_right = 119.0
+offset_bottom = 43.0
+fill_mode = 3

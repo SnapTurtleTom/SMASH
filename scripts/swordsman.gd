@@ -21,6 +21,7 @@ var specialc : String
 var speciald : String
 
 func _ready():
+	$bigsword_bar.max_value = 1
 	$HealthBar.max_value = health
 	if player_type == 1:
 		jump = "jump1"
@@ -68,6 +69,10 @@ func _physics_process(delta):
 		attack_cooldown_on = false
 		
 	
+	$bigsword_bar.value = held_time
+	if held_time != 0:
+		$bigsword_bar.visible = true
+	
 	if Input.is_action_pressed(specialb):
 		held_time += delta
 	elif Input.is_action_just_released(specialb):
@@ -77,6 +82,7 @@ func _physics_process(delta):
 			await get_tree().create_timer(2).timeout
 			attack_cooldown_on = false
 		held_time = 0
+		$bigsword_bar.visible = false
 	
 	if Input.is_action_just_pressed(specialc) and projectile_on == false:
 		var p = projectile.instantiate()
