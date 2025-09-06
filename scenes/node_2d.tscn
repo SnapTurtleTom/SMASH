@@ -39,3 +39,42 @@ shape = SubResource("RectangleShape2D_0e48y")
 position = Vector2(-4, -189)
 zoom = Vector2(0.3, 0.3)
 position_smoothing_enabled = true
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 2
+offset_left = -395.0
+offset_top = -996.0
+offset_right = 395.0
+offset_bottom = -719.0
+theme_override_font_sizes/font_size = 35
+text = "Press 1 to spawn the player.
+Press again to spawn a second player. 
+The character in the game already is a dummy."
+
+[node name="Label2" type="Label" parent="."]
+texture_filter = 2
+offset_left = -1643.0
+offset_top = -896.0
+offset_right = -853.0
+offset_bottom = -619.0
+theme_override_font_sizes/font_size = 35
+text = "Player 1 controls: 
+A, W, D : Movement
+S :  Special a
+Z : Special b
+CapsLock : Special c
+x : Special d"
+
+[node name="Label3" type="Label" parent="."]
+texture_filter = 2
+offset_left = 946.0
+offset_top = -912.0
+offset_right = 1736.0
+offset_bottom = -603.0
+theme_override_font_sizes/font_size = 35
+text = "Player 2 controls: 
+J, I, L : Movement
+K :  Special a
+M : Special b
+; : Special c
+N : Special d"

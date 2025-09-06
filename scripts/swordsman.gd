@@ -77,6 +77,8 @@ func _physics_process(delta):
 		held_time += delta
 	elif Input.is_action_just_released(specialb):
 		if held_time > 1 and $swordsman_attackset.sword_on == false:
+			held_time = 0
+			$bigsword_bar.visible = false
 			$swordsman_attackset.big_sword_attack()
 			attack_cooldown_on = true
 			await get_tree().create_timer(2).timeout
@@ -97,7 +99,7 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed(speciald) and $swordsman_attackset.sword_on == false and attack_cooldown_on == false:
 		$swordsman_attackset.spin_sword_attack()
 		attack_cooldown_on = true
-		await get_tree().create_timer(1).timeout
+		await get_tree().create_timer(2).timeout
 		attack_cooldown_on = false
 	
 	move_and_slide()
