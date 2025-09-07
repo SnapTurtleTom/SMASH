@@ -4,12 +4,13 @@ var projectile = preload("res://scenes/grappling_hook.tscn")
 @export var gravity = 6000.0
 @export var speed = 500.0
 @export var acceleration = 2000.0
-@export var jump_force = -2200.0
+@export var jump_force = -2500.0
 @export var health = 100.0
 var facing_direction := Vector2.RIGHT
 var projectile_on = false
 var held_time : float
 var attack_cooldown_on = false
+var jump_amount = 1
 
 var player_type : int
 var jump : String
@@ -43,9 +44,14 @@ func _ready():
 func _physics_process(delta):
 	if !is_on_floor():
 		velocity.y += gravity * delta
+	else:
+		if jump_amount < 1:
+			jump_amount = 1
 	
-	if is_on_floor() and Input.is_action_just_pressed(jump):
-		velocity.y += jump_force
+	if jump_amount > 0 and Input.is_action_just_pressed(jump):
+		if is_on_floor() == false:
+			jump_amount -= 1
+		velocity.y = jump_force
 	
 	var input_dir = Input.get_axis(left, right)
 	if input_dir != 0:
