@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="SMASH"
-run/main_scene="uid://dvqup8n05tjtr"
+run/main_scene="uid://c2kvjtvf7ta4a"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
