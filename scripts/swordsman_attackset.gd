@@ -23,7 +23,7 @@ func _ready():
 func sword_attack():
 	current_damage = sword_damage
 	current_knockback = 12.5
-	owner_node.speed += 250.0
+	owner_node.speed = 750.0
 	dir = owner_node.facing_direction
 	scale.x = owner_node.facing_direction.x
 	$sword.visible = true
