@@ -1,6 +1,5 @@
-[gd_scene load_steps=6 format=3 uid="uid://dslojl7hw1o8y"]
+[gd_scene load_steps=5 format=3 uid="uid://dslojl7hw1o8y"]
 
-[ext_resource type="Script" uid="uid://bah4adghra0f6" path="res://scripts/start.gd" id="1_rnjyy"]
 [ext_resource type="Texture2D" uid="uid://di45g56m7k84j" path="res://icon.svg" id="2_4vge2"]
 [ext_resource type="Script" uid="uid://y877a48p5rwb" path="res://scripts/dummy.gd" id="3_04qyp"]
 
@@ -12,9 +11,9 @@ height = 2720.0
 size = Vector2(128, 128)
 
 [node name="Node2D" type="Node2D"]
-script = ExtResource("1_rnjyy")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 4
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
 position = Vector2(0, -1.13687e-13)
@@ -27,6 +26,7 @@ shape = SubResource("CapsuleShape2D_0e48y")
 
 [node name="dummy" type="CharacterBody2D" parent="."]
 position = Vector2(432, -145)
+collision_mask = 7
 script = ExtResource("3_04qyp")
 
 [node name="Sprite2D" type="Sprite2D" parent="dummy"]

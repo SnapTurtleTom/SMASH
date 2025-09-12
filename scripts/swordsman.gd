@@ -79,9 +79,8 @@ func _physics_process(delta):
 	if held_time != 0:
 		$bigsword_bar.visible = true
 	
-	if Input.is_action_pressed(specialb):
+	if Input.is_action_pressed(specialb) and attack_cooldown_on == false:
 		held_time += delta
-	elif Input.is_action_just_released(specialb):
 		if held_time > 1 and $swordsman_attackset.sword_on == false:
 			held_time = 0
 			$bigsword_bar.visible = false
@@ -89,6 +88,8 @@ func _physics_process(delta):
 			attack_cooldown_on = true
 			await get_tree().create_timer(2).timeout
 			attack_cooldown_on = false
+			$bigsword_bar.visible = false
+	elif Input.is_action_just_released(specialb):
 		held_time = 0
 		$bigsword_bar.visible = false
 	
@@ -112,7 +113,6 @@ func _physics_process(delta):
 
 func take_damage(damage: float, knockback: Vector2):
 	health -= damage
-	print(health)
 	if health < 1:
 		queue_free()
 	else:

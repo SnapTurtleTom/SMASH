@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cyfgl44ynulpa"]
+
+[ext_resource type="Script" uid="uid://dwajbnlwyj52f" path="res://gunner_bullet.gd" id="1_b82kh"]
+[ext_resource type="Texture2D" uid="uid://di45g56m7k84j" path="res://icon.svg" id="2_hnpnp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1l2bb"]
+size = Vector2(39.75, 13.5)
+
+[node name="gunner_bullet" type="Area2D"]
+script = ExtResource("1_b82kh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0.249999, 0.25)
+scale = Vector2(0.308594, 0.105469)
+texture = ExtResource("2_hnpnp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.125, 0.25)
+shape = SubResource("RectangleShape2D_1l2bb")

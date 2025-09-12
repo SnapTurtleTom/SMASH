@@ -82,5 +82,4 @@ func spin_sword_attack():
 
 func body_entered(body):
 	if body != owner_node and body.has_method("take_damage"):
-		print("dgd")
 		body.take_damage(current_damage, dir * current_knockback)

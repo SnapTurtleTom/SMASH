@@ -13,7 +13,6 @@ func _physics_process(delta):
 
 func take_damage(damage: float, knockback: Vector2):
 	health -= damage
-	print(health)
 	if health < 1:
 		queue_free()
 	else:
