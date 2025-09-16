@@ -64,7 +64,7 @@ text = "Player 1 controls:
 A, W, D : Movement
 S :  Special a
 Z : Special b
-CapsLock : Special c
+Q : Special c
 x : Special d"
 
 [node name="Label3" type="Label" parent="."]

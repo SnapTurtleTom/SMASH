@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 var bullet = preload("res://gunner_bullet.tscn")
+var shotgun_bullet = preload("res://gunner_shotgun.tscn")
 @export var gravity = 6000.0
 @export var speed = 600.0
 @export var acceleration = 2500.0
@@ -113,7 +114,51 @@ func _physics_process(delta):
 			print(revolver_bullets)
 		revolver_reloading = false
 	
+	if Input.is_action_just_pressed(specialc) and attack_cooldown_on == false:
+		var a = shotgun_bullet.instantiate()
+		var b = shotgun_bullet.instantiate()
+		var c = shotgun_bullet.instantiate()
+		a.global_position = global_position
+		a.global_position.y -= 75
+		a.direction = Vector2(0, -1)
+		a.owner_node = self
+		get_tree().current_scene.add_child(a)
+		b.global_position = global_position
+		b.global_position.y -= 75
+		b.direction = Vector2(0.5, -1)
+		b.owner_node = self
+		get_tree().current_scene.add_child(b)
+		c.global_position = global_position
+		c.global_position.y -= 75
+		c.direction = Vector2(-0.5, -1)
+		c.owner_node = self
+		get_tree().current_scene.add_child(c)
+		attack_cooldown_on = true
+		await get_tree().create_timer(1).timeout
+		attack_cooldown_on = false
 	
+	if Input.is_action_just_pressed(speciald) and attack_cooldown_on == false:
+		var a = shotgun_bullet.instantiate()
+		var b = shotgun_bullet.instantiate()
+		var c = shotgun_bullet.instantiate()
+		a.global_position = global_position
+		a.global_position.y -= 75
+		a.direction = Vector2(0, 1)
+		a.owner_node = self
+		get_tree().current_scene.add_child(a)
+		b.global_position = global_position
+		b.global_position.y -= 75
+		b.direction = Vector2(0.5, 1)
+		b.owner_node = self
+		get_tree().current_scene.add_child(b)
+		c.global_position = global_position
+		c.global_position.y -= 75
+		c.direction = Vector2(-0.5, 1)
+		c.owner_node = self
+		get_tree().current_scene.add_child(c)
+		attack_cooldown_on = true
+		await get_tree().create_timer(1).timeout
+		attack_cooldown_on = false
 	
 	move_and_slide()
 

@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bul4dh716vsv3"]
+
+[ext_resource type="Texture2D" uid="uid://bitlqj5ic7f6v" path="res://sprites/spinning_blue_sprites/spinning_blue_blob3.png" id="1_b1nhr"]
+[ext_resource type="Script" uid="uid://cqg2yx2hl3qad" path="res://gunner_shotgun.gd" id="1_exqdg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_exqdg"]
+radius = 10.8779
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_exqdg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_exqdg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 4.76837e-07)
+scale = Vector2(1, 1.5)
+texture = ExtResource("1_b1nhr")
