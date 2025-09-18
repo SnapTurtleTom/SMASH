@@ -1,10 +1,10 @@
 extends CharacterBody2D
 
-var bullet = preload("res://gunner_bullet.tscn")
-var shotgun_bullet = preload("res://gunner_shotgun.tscn")
+var bullet = preload("res://scenes/gunner/gunner_bullet.tscn")
+var shotgun_bullet = preload("res://scenes/gunner/gunner_shotgun.tscn")
 @export var gravity = 6000.0
 @export var speed = 600.0
-@export var acceleration = 2500.0
+@export var acceleration = 3500.0
 @export var jump_force = -2500.0
 @export var health = 100.0
 @export var sniper_bullet_speed = 2500.0

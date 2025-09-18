@@ -1,12 +1,12 @@
 extends Area2D
 
-var player = preload("res://scenes/gunner/gunner.tscn")
-var speed : float
-var projectile_damage : float
+var player = preload("res://scenes/wizard.tscn")
+var speed := 3250
+var projectile_damage := 2.5
 var direction := Vector2.RIGHT
 var owner_node : Node2D
 var player_type : String
-var knockback : float
+var knockback := 10
 
 func _ready():
 	connect("body_entered", Callable(self, "body_entered"))
@@ -17,7 +17,7 @@ func _ready():
 	death_timer()
 
 func _physics_process(delta):
-	position.x += direction.x * speed * delta
+	position.y += direction.y * speed * delta
 
 func death_timer():
 	await get_tree().create_timer(2).timeout

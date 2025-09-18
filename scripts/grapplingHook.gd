@@ -1,6 +1,6 @@
 extends Area2D
 
-var player = preload("res://scenes/swordsman.tscn")
+var player = preload("res://scenes/swordsman/swordsman.tscn")
 @export var speed = 1250.0
 @export var projectile_damage = 5
 var direction := Vector2.RIGHT

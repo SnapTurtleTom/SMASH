@@ -1,0 +1,240 @@
+[gd_scene load_steps=41 format=3 uid="uid://dpkxqmw0od5pg"]
+
+[ext_resource type="Script" uid="uid://gnyj3odyxp1v" path="res://scripts/swordsman.gd" id="1_gl8xt"]
+[ext_resource type="Texture2D" uid="uid://nd7wvk668bso" path="res://sprites/idle_blue_sprites/idle_blue_blob1.png" id="2_d3qeu"]
+[ext_resource type="Texture2D" uid="uid://b2hvrtopl47sc" path="res://sprites/idle_blue_sprites/idle_blue_blob2.png" id="3_rixga"]
+[ext_resource type="Texture2D" uid="uid://cwhoaq1hftccd" path="res://sprites/idle_blue_sprites/idle_blue_blob3.png" id="4_iwdba"]
+[ext_resource type="Texture2D" uid="uid://dr2ycb87ae1hd" path="res://sprites/idle_blue_sprites/idle_blue_blob4.png" id="5_gu5xs"]
+[ext_resource type="Texture2D" uid="uid://cnh6j0s6gw5s" path="res://sprites/idle_blue_sprites/idle_blue_blob5.png" id="6_j1k16"]
+[ext_resource type="Texture2D" uid="uid://dopppwadgytmg" path="res://sprites/spinning_blue_sprites/spinning_blue_blob1.png" id="7_7fwt8"]
+[ext_resource type="Texture2D" uid="uid://cm03g02ea4kxd" path="res://sprites/spinning_blue_sprites/spinning_blue_blob2.png" id="8_h67r4"]
+[ext_resource type="Texture2D" uid="uid://bitlqj5ic7f6v" path="res://sprites/spinning_blue_sprites/spinning_blue_blob3.png" id="9_rox6m"]
+[ext_resource type="Texture2D" uid="uid://dnbq5yh6kr0nw" path="res://sprites/spinning_blue_sprites/spinning_blue_blob4.png" id="10_uocas"]
+[ext_resource type="Texture2D" uid="uid://pfcbeqaux6w7" path="res://sprites/rolling_blue_blob_sprites/blue_blob_rolling1.png" id="11_pc7dc"]
+[ext_resource type="Texture2D" uid="uid://c321ha6yodt5g" path="res://sprites/rolling_blue_blob_sprites/blue_blob_rolling2.png" id="12_b1gjm"]
+[ext_resource type="Texture2D" uid="uid://c2hlljghcy3r2" path="res://sprites/rolling_blue_blob_sprites/blue_blob_rolling3.png" id="13_j0nip"]
+[ext_resource type="Texture2D" uid="uid://c3ovrlgv5od45" path="res://sprites/rolling_blue_blob_sprites/blue_blob_rolling4.png" id="14_2i1us"]
+[ext_resource type="Texture2D" uid="uid://o6faq34kpdir" path="res://sprites/rolling_blue_blob_sprites/blue_blob_rolling5.png" id="15_t8qi7"]
+[ext_resource type="Texture2D" uid="uid://dfvpai7b81ju7" path="res://sprites/rolling_blue_blob_sprites/blue_blob_rolling6.png" id="16_gv20k"]
+[ext_resource type="Texture2D" uid="uid://dxfy1qvxc3pcc" path="res://sprites/rolling_blue_blob_sprites/blue_blob_rolling7.png" id="17_f4ils"]
+[ext_resource type="Texture2D" uid="uid://cmvlykpk4nwob" path="res://sprites/rolling_blue_blob_sprites/blue_blob_rolling8.png" id="18_hlknu"]
+[ext_resource type="Script" uid="uid://ijs624qsbsdu" path="res://scripts/swordsman_attackset.gd" id="19_2o0kt"]
+[ext_resource type="Texture2D" uid="uid://b3mji6mo21x3m" path="res://sprites/blue_blob_attack/big_sword_attack/blue_blob_big_slash1.png" id="20_t7n4e"]
+[ext_resource type="Texture2D" uid="uid://dwcmn71hgtc4m" path="res://sprites/blue_blob_attack/big_sword_attack/blue_blob_big_slash2.png" id="21_uoux5"]
+[ext_resource type="Texture2D" uid="uid://cgsrrtnqlswk5" path="res://sprites/blue_blob_attack/big_sword_attack/blue_blob_big_slash3.png" id="22_20q48"]
+[ext_resource type="Texture2D" uid="uid://dh52wk1anry6b" path="res://sprites/blue_blob_attack/big_sword_attack/blue_blob_big_slash4.png" id="23_kttwp"]
+[ext_resource type="Texture2D" uid="uid://bwomnbmki7ayf" path="res://sprites/blue_blob_attack/sword_attack/blue_blob_slash2.png" id="24_8a20a"]
+[ext_resource type="Texture2D" uid="uid://ccqmr53ptvrm3" path="res://sprites/blue_blob_attack/sword_attack/blue_blob_slash3.png" id="25_6n003"]
+[ext_resource type="Texture2D" uid="uid://bs3und1r0jepv" path="res://sprites/blue_blob_attack/sword_attack/blue_blob_slash4.png" id="26_qxi1n"]
+[ext_resource type="Texture2D" uid="uid://drtr04s08tk2n" path="res://sprites/blue_blob_attack/sword_attack/blue_blob_slash5.png" id="27_jr7ca"]
+[ext_resource type="Texture2D" uid="uid://cx7jr4x7y7j2u" path="res://sprites/blue_blob_attack/sword_attack/blue_blob_slash6.png" id="28_px1nk"]
+[ext_resource type="Texture2D" uid="uid://bacu015jdp8bi" path="res://sprites/blue_blob_attack/spinsword_attack/blue_sword_sprite.png" id="29_bcpg7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0e48y"]
+radius = 64.1249
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1xxg6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_d3qeu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_rixga")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_iwdba")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_gu5xs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_j1k16")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4y5hj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_7fwt8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_h67r4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_rox6m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_uocas")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i4tte"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_pc7dc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_b1gjm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_j0nip")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_2i1us")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_t8qi7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_gv20k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_f4ils")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_hlknu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 30.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8rhti"]
+radius = 350.036
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b085t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("20_t7n4e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_uoux5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_20q48")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_kttwp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 24.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e4ynd"]
+size = Vector2(193.196, 476)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ystrd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("24_8a20a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_6n003")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_qxi1n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_jr7ca")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_px1nk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1xxg6"]
+size = Vector2(268, 50)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r8ub6"]
+bg_color = Color(1.58831e-06, 0.726311, 0.168332, 1)
+
+[sub_resource type="Theme" id="Theme_517kj"]
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_r8ub6")
+
+[node name="swordsman" type="CharacterBody2D"]
+collision_mask = 7
+script = ExtResource("1_gl8xt")
+
+[node name="swordsman_hitbox" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_0e48y")
+
+[node name="swordsman_idle" type="AnimatedSprite2D" parent="swordsman_hitbox"]
+scale = Vector2(12, 12)
+sprite_frames = SubResource("SpriteFrames_1xxg6")
+autoplay = "default"
+
+[node name="swordsman_spinning" type="AnimatedSprite2D" parent="swordsman_hitbox"]
+visible = false
+position = Vector2(-9, -12)
+scale = Vector2(12, 12)
+sprite_frames = SubResource("SpriteFrames_4y5hj")
+autoplay = "default"
+
+[node name="swordsman_rolling" type="AnimatedSprite2D" parent="swordsman_hitbox"]
+visible = false
+scale = Vector2(12, 12)
+sprite_frames = SubResource("SpriteFrames_i4tte")
+autoplay = "default"
+
+[node name="swordsman_attackset" type="Area2D" parent="."]
+collision_layer = 2
+script = ExtResource("19_2o0kt")
+
+[node name="bigsword" type="CollisionShape2D" parent="swordsman_attackset"]
+shape = SubResource("CircleShape2D_8rhti")
+
+[node name="bigsword_animated_sprite" type="AnimatedSprite2D" parent="swordsman_attackset/bigsword"]
+position = Vector2(6.10352e-05, -1.43051e-06)
+scale = Vector2(10.9855, 12.2535)
+sprite_frames = SubResource("SpriteFrames_b085t")
+autoplay = "default"
+
+[node name="sword" type="CollisionShape2D" parent="swordsman_attackset"]
+position = Vector2(161.5, -43.5)
+scale = Vector2(1.67188, 0.25)
+shape = SubResource("RectangleShape2D_e4ynd")
+
+[node name="sword_animated_sprite" type="AnimatedSprite2D" parent="swordsman_attackset/sword"]
+position = Vector2(8.58307e-05, 0)
+scale = Vector2(3.78815, 28)
+sprite_frames = SubResource("SpriteFrames_ystrd")
+autoplay = "default"
+
+[node name="spinsword" type="CollisionShape2D" parent="swordsman_attackset"]
+position = Vector2(134, 0)
+shape = SubResource("RectangleShape2D_1xxg6")
+
+[node name="Sprite2D" type="Sprite2D" parent="swordsman_attackset/spinsword"]
+position = Vector2(0, -4.76837e-07)
+scale = Vector2(6.38095, 5.55556)
+texture = ExtResource("29_bcpg7")
+
+[node name="bigsword_bar" type="ProgressBar" parent="."]
+visible = false
+offset_left = 100.0
+offset_top = -43.0
+offset_right = 119.0
+offset_bottom = 43.0
+fill_mode = 3
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+offset_left = -100.0
+offset_top = -109.0
+offset_right = 100.0
+offset_bottom = -80.0
+theme = SubResource("Theme_517kj")

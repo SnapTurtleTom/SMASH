@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var projectile = preload("res://scenes/grappling_hook.tscn")
+var projectile = preload("res://scenes/swordsman/grappling_hook.tscn")
 @export var gravity = 6000.0
 @export var speed = 500.0
 @export var acceleration = 2000.0

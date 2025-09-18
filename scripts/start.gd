@@ -1,6 +1,7 @@
 extends Node2D
-var swordsman = preload("res://scenes/swordsman.tscn")
-var gunner = preload("res://scenes/gunner.tscn")
+var swordsman = preload("res://scenes/swordsman/swordsman.tscn")
+var gunner = preload("res://scenes/gunner/gunner.tscn")
+var wizard = preload("res://scenes/wizard.tscn")
 var key_pressed : String
 var starting_player_type = 0
 
@@ -42,6 +43,20 @@ func spawn():
 				new.position = Vector2(1000, -500)
 			add_child(new)
 			Global.player1 = get_node("/root/Node2D/gunner")
+		
+		if key_pressed == "3":
+			starting_player_type += 1
+			var new = wizard.instantiate()
+			if starting_player_type == 1:
+				new.player_type = 1
+				print(new.player_type)
+				new.position = Vector2(-1000, -500)
+			elif starting_player_type == 2:
+				new.player_type = 2
+				print(new.player_type)
+				new.position = Vector2(1000, -500)
+			add_child(new)
+			Global.player1 = get_node("/root/Node2D/wizard")
 		
 		while Input.is_action_just_pressed("Spawn"):
 			await get_tree().process_frame

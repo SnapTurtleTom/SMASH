@@ -1,26 +1,26 @@
 [gd_scene load_steps=6 format=3 uid="uid://dvqup8n05tjtr"]
 
-[ext_resource type="Script" uid="uid://dxe3qjbo44ehi" path="res://gunner.gd" id="1_dq2hc"]
-[ext_resource type="Texture2D" uid="uid://di45g56m7k84j" path="res://icon.svg" id="2_e7ore"]
+[ext_resource type="Script" uid="uid://dxe3qjbo44ehi" path="res://gunner.gd" id="1_hl2eg"]
+[ext_resource type="Texture2D" uid="uid://di45g56m7k84j" path="res://icon.svg" id="2_ky6iw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_e8ncc"]
 radius = 64.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1xxg6"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_58u8n"]
 bg_color = Color(1.58831e-06, 0.726311, 0.168332, 1)
 
 [sub_resource type="Theme" id="Theme_58u8n"]
-ProgressBar/styles/fill = SubResource("StyleBoxFlat_1xxg6")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_58u8n")
 
 [node name="gunner" type="CharacterBody2D"]
 collision_mask = 7
-script = ExtResource("1_dq2hc")
+script = ExtResource("1_hl2eg")
 
 [node name="gunner_hitbox" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_e8ncc")
 
 [node name="gunner_sprite" type="Sprite2D" parent="gunner_hitbox"]
-texture = ExtResource("2_e7ore")
+texture = ExtResource("2_ky6iw")
 
 [node name="HealthBar" type="ProgressBar" parent="."]
 offset_left = -100.0

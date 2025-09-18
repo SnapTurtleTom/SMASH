@@ -1,7 +1,7 @@
 extends Area2D
 
-var player = preload("res://scenes/gunner.tscn")
-var speed := 2000.0
+var player = preload("res://scenes/gunner/gunner.tscn")
+var speed := 2250.0
 var projectile_damage := 5.0
 var direction : Vector2
 var owner_node : Node2D
