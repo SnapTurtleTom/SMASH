@@ -1,10 +1,37 @@
-[gd_scene load_steps=6 format=3 uid="uid://cxoy5sfipmawy"]
+[gd_scene load_steps=11 format=3 uid="uid://cxoy5sfipmawy"]
 
 [ext_resource type="Script" uid="uid://cf1uja82fa2i0" path="res://wizard.gd" id="1_leome"]
-[ext_resource type="Texture2D" uid="uid://di45g56m7k84j" path="res://icon.svg" id="2_j4iv4"]
+[ext_resource type="Texture2D" uid="uid://bp2x17w244np7" path="res://sprites/Wizard/idle_wizard_blob1.png" id="2_8qlyk"]
+[ext_resource type="Texture2D" uid="uid://drre1jtnwe010" path="res://sprites/Wizard/idle_wizard_blob2.png" id="3_4jkov"]
+[ext_resource type="Texture2D" uid="uid://bue1axmufe2ng" path="res://sprites/Wizard/idle_wizard_blob3.png" id="4_ba5mt"]
+[ext_resource type="Texture2D" uid="uid://c8k37sli3714g" path="res://sprites/Wizard/idle_wizard_blob4.png" id="5_var7a"]
+[ext_resource type="Texture2D" uid="uid://b0pbgbgp2t1o0" path="res://sprites/Wizard/idle_wizard_blob5.png" id="6_1g42w"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xxhrx"]
 radius = 64.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_otiyp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_8qlyk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_4jkov")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ba5mt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_var7a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_1g42w")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1xxg6"]
 bg_color = Color(1.58831e-06, 0.726311, 0.168332, 1)
@@ -19,8 +46,11 @@ script = ExtResource("1_leome")
 [node name="wizard_hitbox" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_xxhrx")
 
-[node name="wizard_sprite" type="Sprite2D" parent="wizard_hitbox"]
-texture = ExtResource("2_j4iv4")
+[node name="wizard_idle" type="AnimatedSprite2D" parent="wizard_hitbox"]
+position = Vector2(0, -14)
+scale = Vector2(12, 12)
+sprite_frames = SubResource("SpriteFrames_otiyp")
+autoplay = "default"
 
 [node name="HealthBar" type="ProgressBar" parent="."]
 offset_left = -100.0

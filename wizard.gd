@@ -61,9 +61,9 @@ func _physics_process(delta):
 	$HealthBar.value = health
 	
 	if facing_direction.x == -1:
-		$wizard_hitbox/wizard_sprite.flip_h = true
+		$wizard_hitbox/wizard_idle.flip_h = true
 	elif facing_direction.x == 1:
-		$wizard_hitbox/wizard_sprite.flip_h = false
+		$wizard_hitbox/wizard_idle.flip_h = false
 	
 	if Input.is_action_just_pressed(speciala) and attack_cooldown_on == false:
 		var dir = 0
