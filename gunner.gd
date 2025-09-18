@@ -74,9 +74,9 @@ func _physics_process(delta):
 		$revolver_bullet_amount.visible = false
 	
 	if facing_direction.x == -1:
-		$gunner_hitbox/gunner_sprite.flip_h = true
+		$gunner_hitbox/gunner_idle.flip_h = true
 	elif facing_direction.x == 1:
-		$gunner_hitbox/gunner_sprite.flip_h = false
+		$gunner_hitbox/gunner_idle.flip_h = false
 	
 	if Input.is_action_just_pressed(speciala) and attack_cooldown_on == false:
 		var p = bullet.instantiate()
